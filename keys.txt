@@ -1,4 +1,4 @@
 API Keys:w92t52cvsppdst5du4x5av4m
 
 Specific news on a certain team
-http://api.espn.com/v1/sports/baseball/mlb/teams/2/news?apikey=w92t52cvsppdst5du4x5av4m
+http://api.espn.com/v1/sports/baseball/mlb/teams/10/news?apikey=w92t52cvsppdst5du4x5av4m

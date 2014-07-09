@@ -1,0 +1,33 @@
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <br>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <br>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <br>
+
+  <%= f.label :email_address %>
+  <%= f.text_field :email_address %>
+  <br>
+
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <br>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  <br>
+
+  <%= f.label(:team) %>
+  <% Sport.all.each do |sport| %>
+    <%= select_tag("#{sport.sport_name.downcase}_team_id", options_for_select(sport.teams.all.map { |team| [team.team_name, team.id] })) %>
+  <% end %>
+
+  <%= f.submit 'Sign Up' %>
+<% end %>

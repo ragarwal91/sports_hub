@@ -1,0 +1,4 @@
+<% @response.each do |response| %>
+  <a href="<%= response['links']['web']['href'] %>"><%= response['headline'] %></a>
+  <br>
+<% end %>

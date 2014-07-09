@@ -12,6 +12,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.baseball_team_id = params[:baseball_team_id]
+    @user.basketball_team_id = params[:basketball_team_id]
+    @user.football_team_id = params[:football_team_id]
+    @user.hockey_team_id = params[:hockey_team_id]
     if @user.save
 
       redirect_to users_path
@@ -31,11 +35,12 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
+    @user.baseball_team_id = params[:baseball_team_id]
+    @user.basketball_team_id = params[:basketball_team_id]
+    @user.football_team_id = params[:football_team_id]
+    @user.hockey_team_id = params[:hockey_team_id]
     if @user.save
-      @user.teams << Team.find(params[:baseball_team_id])
-      @user.teams << Team.find(params[:basketball_team_id])
-      @user.teams << Team.find(params[:football_team_id])
-      @user.teams << Team.find(params[:hockey_team_id])
+
       redirect_to(user_path(@user))
     else
       render(:edit)
@@ -52,6 +57,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :first_name, :last_name,:email_address, :password, :password_confirmation)
+    params.require(:user).permit(:username, :first_name, :last_name,:email_address, :password, :password_confirmation,:baseball_team_id,:baketball_team_id,:football_team_id,:hockey_team_id)
   end
 end

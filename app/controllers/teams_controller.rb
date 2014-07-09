@@ -2,6 +2,7 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.all
+
   end
 
   def new
@@ -19,6 +20,7 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    @response = Team.api
   end
 
   def edit

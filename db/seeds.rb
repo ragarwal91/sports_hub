@@ -4,25 +4,25 @@ User.destroy_all
 mlb = Sport.create(
     sport_name: "Baseball",
     league_name: "Major League Baseball",
-    league_name_short: "MLB"
+    league_acronym: "MLB"
   )
 
 nba = Sport.create(
     sport_name: "Basketball",
     league_name: "National Basketball Association",
-    league_name_short: "NBA"
+    league_acronym: "NBA"
   )
 
 nfl = Sport.create(
     sport_name: "Football",
     league_name: "National Football League",
-    league_name_short: "NFL"
+    league_acronym: "NFL"
   )
 
 nhl = Sport.create(
     sport_name: "Hockey",
     league_name: "National Hockey League",
-    league_name_short: "NHL"
+    league_acronym: "NHL"
   )
 
 mlb.teams.push(

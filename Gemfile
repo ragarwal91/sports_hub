@@ -29,13 +29,15 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-
+# Require HTTParty
+gem 'httparty'
 
 group :development, :test do
      gem 'rspec-rails'
      gem 'rspec-collection_matchers'
      gem 'shoulda-matchers', require: false
      gem 'pry-rails'
+     gem 'awesome_print'
 end
 # Use unicorn as the app server
 # gem 'unicorn'
