@@ -13,10 +13,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+
       redirect_to users_path
     else
       render :new
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -27,8 +32,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(user_params)
     if @user.save
+      @user.teams << Team.find(params[:baseball_team_id])
+      @user.teams << Team.find(params[:basketball_team_id])
+      @user.teams << Team.find(params[:football_team_id])
+      @user.teams << Team.find(params[:hockey_team_id])
       redirect_to(user_path(@user))
-    else render(:edit)
+    else
+      render(:edit)
     end
   end
 

@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private
+  
+  def current_user
+    User.find_by(id: session[:current_user]) if session[:current_user]
+  end
+
   def authenticate
     if !session[:current_user]
       redirect_to login_path

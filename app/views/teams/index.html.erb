@@ -1,0 +1,16 @@
+<p>
+
+  <% if session[:current_user] %>
+    Only a logged in user should be able to see this, <%= User.find(session[:current_user]).username %>!
+    <ul>
+      <% @teams.each do |team| %>
+        <li>
+          <%= link_to(team.team_name, team_path(team)) %>
+        </li>
+      <% end %>
+    </ul>
+
+  <% else %>
+    You are not logged in!
+  <% end %>
+</p>

@@ -2,10 +2,11 @@
 <hr>
 <% @users.each do |user| %>
   <%= user.id %><br>
-  <b><%= user.username %></b><br>
+  <%= link_to(user.username, user_path(user)) %>
   <%= "#{user.first_name} #{user.last_name}" %><br>
   <%= user.password_digest %><br>
   <%= user.email_address %>
+  <%= user.password %>
   <% if session[:current_user] == user.id %>
   <%= link_to 'Remove', user_path(user), method: :delete %>
   <% end %>

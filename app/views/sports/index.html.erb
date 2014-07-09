@@ -1,0 +1,7 @@
+<ul>
+  <% @sports.each do |sport| %>
+    <li>
+      <%= link_to(sport.sport_name, sport_path(sport)) %>
+    </li>
+  <% end %>
+</ul>
