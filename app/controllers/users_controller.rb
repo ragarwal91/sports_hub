@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+  #   @info = {:mlb => mlb_info,
+  #             :nhl => info}
   end
 
   def new
@@ -17,7 +19,6 @@ class UsersController < ApplicationController
     @user.football_team_id = params[:football_team_id]
     @user.hockey_team_id = params[:hockey_team_id]
     if @user.save
-
       redirect_to users_path
     else
       render :new
@@ -49,7 +50,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    if sesson[:current_user] == @user.id
+    if session[:current_user] == @user.id
       @user.destroy
     end
     redirect_to users_path

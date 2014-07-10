@@ -32,6 +32,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Require HTTParty
 gem 'httparty'
 
+gem 'rails_12factor'
+
 group :development, :test do
      gem 'rspec-rails'
      gem 'rspec-collection_matchers'
