@@ -40,6 +40,8 @@ group :development, :test do
      gem 'shoulda-matchers', require: false
      gem 'pry-rails'
      gem 'awesome_print'
+     gem 'better_errors'
+     gem 'binding_of_caller'
 end
 # Use unicorn as the app server
 # gem 'unicorn'

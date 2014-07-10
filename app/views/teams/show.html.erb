@@ -1,8 +1,25 @@
-<ul>
-  <% @info.each do |info| %>
-    <li>
-      <%= info["headline"] %><br>
-      <%= info["description"] %>
-    </li>
-  <% end %>
-</ul>
+
+
+<% if @mlb_info %>
+  <ul>
+  <h2 style="color:#<%= @mlb_team_info['color'] %>"><%= @mlb_team_info['location'] %> <%= @mlb_team_info['name'] %></h2>
+  <p>
+    <%= @mlb_team_info['venues'][0]['name'] %>
+    <img src="<%= @mlb_team_info['venues'][0]['images']["day"]["medium"]["href"] %>" />
+  </p>
+    <% @mlb_news.each do |mlb_news| %>
+      <li>
+        <a href="<%= mlb_news["links"]["web"]["href"] %>"><%= mlb_news["headline"] %><br></a>
+        <%= mlb_news["description"] %>
+        <% if mlb_news["images"] && mlb_news["images"][0] %>
+          <img src="<%= mlb_news["images"][0]["url"] %>" alt="" />
+        <% end %>
+        <% if mlb_news["video"] && mlb_news["video"][0] %>
+          <video src="<%= mlb_news["video"][0]["links"]["source"]["mezzanine"]["href"] %>" controls>
+          </video>
+          <img src="" alt="" />
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

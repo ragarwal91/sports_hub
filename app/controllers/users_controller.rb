@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     @user.football_team_id = params[:football_team_id]
     @user.hockey_team_id = params[:hockey_team_id]
     if @user.save
+      session[:current_user] = @user.id
       redirect_to users_path
     else
       render :new

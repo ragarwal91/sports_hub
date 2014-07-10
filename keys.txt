@@ -2,3 +2,6 @@ API Keys:w92t52cvsppdst5du4x5av4m
 
 Specific news on a certain team
 http://api.espn.com/v1/sports/baseball/mlb/teams/10/news?apikey=w92t52cvsppdst5du4x5av4m
+
+Enables venue info
+http://api.espn.com/v1/sports/football/nfl/teams?enable=venues&apikey=w92t52cvsppdst5du4x5av4m
