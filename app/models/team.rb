@@ -1,5 +1,4 @@
 require 'httparty'
 class Team < ActiveRecord::Base
-  belongs_to :sports
-  
+  belongs_to :sport
 end

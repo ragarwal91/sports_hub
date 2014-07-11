@@ -19,8 +19,12 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    @team_sport = Team.find(@team.sport_id)
     @mlb_team_info = Espn.mlb_team_info(@team.espn_id)
-    @mlb_info = Espn.mlb_info
+    @nba_team_info = Espn.nba_team_info(@team.espn_id)
+    @nfl_team_info = Espn.nfl_team_info(@team.espn_id)
+    @nhl_team_info = Espn.nhl_team_info(@team.espn_id)
+    # @mlb_info = Espn.mlb_info
     # @nba_info = Espn.nba_info
     # @nfl_info = Espn.nfl_info
     # @nhl_info = Espn.nhl_info
