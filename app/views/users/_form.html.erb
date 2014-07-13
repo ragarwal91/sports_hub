@@ -26,7 +26,7 @@
 
   <%= f.label(:team) %>
   <% Sport.all.each do |sport| %>
-    <%= select_tag("#{sport.sport_name.downcase}_team_id", options_for_select(sport.teams.all.map { |team| [team.team_name, team.id] })) %>
+    <%= select_tag("#{sport.sport_name.downcase}_team_id", options_for_select(sport.teams.all.map { |team| [team.team_name, team.id]}, :selected => [:baseball_team_id, :basketball_team_id, :football_team_id, :hockey_team_id ] )) %>
   <% end %>
 
   <%= f.submit %>
