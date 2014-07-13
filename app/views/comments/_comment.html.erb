@@ -1,0 +1,8 @@
+<div>
+  <%= "#{comment.user.first_name} #{comment.user.last_name}:" %><br>
+  <%= comment.content %><br>
+  <%= link_to 'Remove', comment_path(team), method: :delete %>
+  <% if session[:current_user] == comment.user %>
+  <%= link_to 'Remove', comment_path(team), method: :delete %>
+  <% end %>
+</div>

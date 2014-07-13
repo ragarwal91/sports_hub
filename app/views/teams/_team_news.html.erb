@@ -1,0 +1,14 @@
+
+<li>
+  <a href="<%= team_news["links"]["web"]["href"] %>"><%= team_news["headline"] %><br></a>
+  <%= team_news["description"] %>
+  <% if team_news["images"] && team_news["images"][0] %>
+    <img src="<%= team_news["images"][0]["url"] %>" alt="" />
+  <% end %>
+  <% if team_news["video"] && team_news["video"][0] %>
+    <video src="<%= team_news["video"][0]["links"]["source"]["mezzanine"]["href"] %>" controls>
+    </video>
+    <img src="" alt="" />
+  <% end %>
+</li>
+<% sleep(1) %>

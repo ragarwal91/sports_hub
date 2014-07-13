@@ -1,8 +1,48 @@
 <%= link_to('Edit', edit_user_path(@user)) %>
-<p>
-  <div>
-    <h2>Your favorite MLB team</h2>
-    <h2><%= @mlb_news.first['headline'] %><br></h2>
-    <%= @mlb_news.first['description'] %><br>
-  </div>
-</p>
+<div class="user-fav">
+  <h2>Your favorite MLB team</h2>
+  <h2><%= @mlb_news.first['headline'] %><br></h2>
+  <%= @mlb_news.first['description'] %><br>
+  <img src="<%= @mlb_news.first['images'].first['url'] %>" />
+  <% if @mlb_news.first["video"] && @mlb_news.first["video"][0] %>
+    <video src="<%= @mlb_news.first["video"][0]["links"]["source"]["mezzanine"]["href"] %>" controls>
+    </video>
+  <% end %>
+  <% sleep(1) %>
+</div>
+
+<div class="user-fav">
+  <h2>Your favorite MLB team</h2>
+  <h2><%= @mlb_news.first['headline'] %><br></h2>
+  <%= @mlb_news.first['description'] %><br>
+  <img src="<%= @mlb_news.first['images'].first['url'] %>" />
+  <% if @mlb_news.first["video"] && @mlb_news.first["video"][0] %>
+    <video src="<%= @mlb_news.first["video"][0]["links"]["source"]["mezzanine"]["href"] %>" controls>
+    </video>
+  <% end %>
+  <% sleep(1) %>
+</div>
+
+<div class="user-fav">
+  <h2>Your favorite MLB team</h2>
+  <h2><%= @mlb_news.first['headline'] %><br></h2>
+  <%= @mlb_news.first['description'] %><br>
+  <img src="<%= @mlb_news.first['images'].first['url'] %>" />
+  <% if @mlb_news.first["video"] && @mlb_news.first["video"][0] %>
+    <video src="<%= @mlb_news.first["video"][0]["links"]["source"]["mezzanine"]["href"] %>" controls>
+    </video>
+  <% end %>
+  <% sleep(1) %>
+</div>
+
+<div class="user-fav">
+  <h2>Your favorite MLB team</h2>
+  <h2><%= @mlb_news.first['headline'] %><br></h2>
+  <%= @mlb_news.first['description'] %><br>
+  <img src="<%= @mlb_news.first['images'].first['url'] %>" />
+  <% if @mlb_news.first["video"] && @mlb_news.first["video"][0] %>
+    <video src="<%= @mlb_news.first["video"][0]["links"]["source"]["mezzanine"]["href"] %>" controls>
+    </video>
+  <% end %>
+  <% sleep(1) %>
+</div>

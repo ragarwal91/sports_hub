@@ -1,0 +1,8 @@
+<h2>New Comment</h2>
+
+<%= form_for [team, comment] do |f| %>
+  <%= f.text_area :content %>
+  <br>
+
+  <%= f.submit 'Submit' %>
+<% end %>

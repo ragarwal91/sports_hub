@@ -31,10 +31,12 @@ class UsersController < ApplicationController
     # @mlb_team_info = Espn.mlb_team_info(@user.baseball_team_id)
     # @nba_team_info = Espn.nba_team_info(@user.basketball_team_id)
     @mlb_news = User.mlb_team_news(@user.baseball_team_id)
+    sleep(1)
     @nba_news = User.nba_team_news(@user.basketball_team_id)
-    # @nba_team_news = User.nba_team_news(@user.basketball_team_id)
-    # @nfl_team_news = User.nfl_team_news(@user.football_team_id)
-    # @nhl_team_news = User.nhl_team_news(@user.hockey_team_id)
+    sleep(1)
+    @nfl_news = User.nfl_team_news(@user.football_team_id)
+    sleep(1)
+    @nhl_news = User.nhl_team_news(@user.hockey_team_id)
   end
 
   def edit
@@ -49,7 +51,6 @@ class UsersController < ApplicationController
     @user.football_team_id = params[:football_team_id]
     @user.hockey_team_id = params[:hockey_team_id]
     if @user.save
-
       redirect_to(user_path(@user))
     else
       render(:edit)

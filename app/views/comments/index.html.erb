@@ -1,0 +1,13 @@
+<h2>Comments</h2>
+
+<%= link_to 'New Comment', new_comment_path %>
+<hr>
+<% @comments.each do |comment| %>
+  <p>
+    <%= comment.content %>
+  </p>
+  <p>
+    By <%= comment.user.first_name %>
+  </p>
+  <hr>
+<% end %>

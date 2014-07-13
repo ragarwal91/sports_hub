@@ -18,6 +18,7 @@ class SportsController < ApplicationController
 
   def show
     @sport = Sport.find(params[:id])
+    @teams = Sport.find(@sport.id)
   end
 
   def edit

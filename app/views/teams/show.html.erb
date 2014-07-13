@@ -1,84 +1,39 @@
-
 <% if @team.sport.id == 1 %>
+  <%= render partial: 'team_info', locals: {team_info: @mlb_team_info} %>
   <ul>
-  <h2 style="color:#<%= @mlb_team_info['color'] %>"><%= @mlb_team_info['location'] %> <%= @mlb_team_info['name'] %></h2>
-  <p>
-    <%= @mlb_team_info['venues'][0]['name'] %>
-    <img src="<%= @mlb_team_info['venues'][0]['images']["day"]["medium"]["href"] %>" />
-  </p>
-    <% @mlb_news.each do |mlb_news| %>
-      <li>
-        <a href="<%= mlb_news["links"]["web"]["href"] %>"><%= mlb_news["headline"] %><br></a>
-        <%= mlb_news["description"] %>
-        <% if mlb_news["images"] && mlb_news["images"][0] %>
-          <img src="<%= mlb_news["images"][0]["url"] %>" alt="" />
-        <% end %>
-        <% if mlb_news["video"] && mlb_news["video"][0] %>
-          <video src="<%= mlb_news["video"][0]["links"]["source"]["mezzanine"]["href"] %>" controls>
-          </video>
-          <img src="" alt="" />
-        <% end %>
-      </li>
+    <% @mlb_news.each do |team_news| %>
+      <%= render partial: 'team_news', locals: {team_news: team_news} %>
     <% end %>
   </ul>
 <% elsif @team.sport.id == 2 %>
+  <%= render partial: 'team_info', locals: {team_info: @nba_team_info} %>
   <ul>
-  <p>
-    <%= @nba_team_info['venues'][0]['name'] %>
-  </p>
-    <% @nba_news.each do |nba_news| %>
-      <li>
-        <a href="<%= nba_news["links"]["web"]["href"] %>"><%= nba_news["headline"] %><br></a>
-        <%= nba_news["description"] %>
-        <% if nba_news["images"] && nba_news["images"][0] %>
-          <img src="<%= nba_news["images"][0]["url"] %>" alt="" />
-        <% end %>
-        <% if nba_news["video"] && nba_news["video"][0] %>
-          <video src="<%= nba_news["video"][0]["links"]["source"]["mezzanine"]["href"] %>" controls>
-          </video>
-          <img src="" alt="" />
-        <% end %>
-      </li>
+    <% @nba_news.each do |team_news| %>
+      <%= render partial: 'team_news', locals: {team_news: team_news} %>
     <% end %>
   </ul>
 <% elsif @team.sport.id == 3  %>
+  <%= render partial: 'team_info', locals: {team_info: @nfl_team_info} %>
   <ul>
-  <p>
-    <%= @nfl_team_info['venues'][0]['name'] %>
-  </p>
-    <% @nfl_news.each do |nfl_news| %>
-      <li>
-        <a href="<%= nfl_news["links"]["web"]["href"] %>"><%= nfl_news["headline"] %><br></a>
-        <%= nfl_news["description"] %>
-        <% if nfl_news["images"] && nfl_news["images"][0] %>
-          <img src="<%= nfl_news["images"][0]["url"] %>" alt="" />
-        <% end %>
-        <% if nfl_news["video"] && nfl_news["video"][0] %>
-          <video src="<%= nfl_news["video"][0]["links"]["source"]["mezzanine"]["href"] %>" controls>
-          </video>
-          <img src="" alt="" />
-        <% end %>
-      </li>
+    <% @nfl_news.each do |team_news| %>
+      <%= render partial: 'team_news', locals: {team_news: team_news} %>
     <% end %>
   </ul>
 <% elsif @team.sport.id == 4 %>
+  <%= render partial: 'team_info', locals: {team_info: @nhl_team_info} %>
   <ul>
-  <p>
-    <%= @nhl_team_info['venues'][0]['name'] %>
-  </p>
-    <% @nhl_news.each do |nhl_news| %>
-      <li>
-        <a href="<%= nhl_news["links"]["web"]["href"] %>"><%= nhl_news["headline"] %><br></a>
-        <%= nhl_news["description"] %>
-        <% if nhl_news["images"] && nhl_news["images"][0] %>
-          <img src="<%= nhl_news["images"][0]["url"] %>" alt="" />
-        <% end %>
-        <% if nhl_news["video"] && nhl_news["video"][0] %>
-          <video src="<%= nhl_news["video"][0]["links"]["source"]["mezzanine"]["href"] %>" controls>
-          </video>
-          <img src="" alt="" />
-        <% end %>
-      </li>
+    <% @nhl_news.each do |team_news| %>
+      <%= render partial: 'team_news', locals: {team_news: team_news} %>
     <% end %>
   </ul>
 <% end %>
+
+<h2>Comments</h2>
+
+<% @team.comments.each do |comment| %>
+
+  <%= render partial: 'comments/comment', locals: {comment: comment} %>
+
+<% end %>
+
+  <%= render partial: 'comments/new', locals: {team: @team, comment: Comment.new} %>
