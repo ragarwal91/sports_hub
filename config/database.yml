@@ -81,5 +81,4 @@ test:
 production:
   <<: *default
   database: sports_hub_app_production
-  username: sports_hub_app
   password: <%= ENV['SPORTS_HUB_APP_DATABASE_PASSWORD'] %>
