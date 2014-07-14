@@ -5,33 +5,38 @@ class User < ActiveRecord::Base
   validates :username, :email_address, uniqueness: true
   # validates length_of :password_digest, minimum: 6
 
-  def self.breaking_news
-    url_response = URI.escape("http://api.espn.com/v1/now/?apikey=w92t52cvsppdst5du4x5av4m")
-    response = HTTParty.get(url_response)['feed']
-    return response
-  end
-
   def self.mlb_team_news(team_id)
-    url_response = URI.escape("http://api.espn.com/v1/sports/baseball/mlb/teams/#{team_id}/news?limit=1&apikey=w92t52cvsppdst5du4x5av4m")
+    espn_key = ENV["ESPN_API_KEY"]
+    url_response = URI.escape("http://api.espn.com/v1/sports/baseball/mlb/teams/#{team_id}/news?limit=1&apikey=#{espn_key}")
     response = HTTParty.get(url_response)['headlines']
     return response
   end
 
   def self.nba_team_news(team_id)
-    url_response = URI.escape("http://api.espn.com/v1/sports/basketball/nba/teams/#{team_id}/news?limit=1&apikey=w92t52cvsppdst5du4x5av4m")
+    espn_key = ENV["ESPN_API_KEY"]
+    url_response = URI.escape("http://api.espn.com/v1/sports/basketball/nba/teams/#{team_id}/news?limit=1&apikey=#{espn_key}")
     response = HTTParty.get(url_response)['headlines']
     return response
   end
 
   def self.nfl_team_news(team_id)
-    url_response = URI.escape("http://api.espn.com/v1/sports/football/nfl/teams/#{team_id}/news?limit=1&apikey=w92t52cvsppdst5du4x5av4m")
+    espn_key = ENV["ESPN_API_KEY"]
+    url_response = URI.escape("http://api.espn.com/v1/sports/football/nfl/teams/#{team_id}/news?limit=1&apikey=#{espn_key}")
     response = HTTParty.get(url_response)['headlines']
     return response
   end
 
   def self.nhl_team_news(team_id)
-    url_response = URI.escape("http://api.espn.com/v1/sports/hockey/nhl/teams/#{team_id}/news?limit=1&apikey=w92t52cvsppdst5du4x5av4m")
+    espn_key = ENV["ESPN_API_KEY"]
+    url_response = URI.escape("http://api.espn.com/v1/sports/hockey/nhl/teams/#{team_id}/news?limit=1&apikey=#{espn_key}")
     response = HTTParty.get(url_response)['headlines']
+    return response
+  end
+
+  def self.breaking_news
+    espn_key = ENV["ESPN_API_KEY"]
+    url_response = URI.escape("http://api.espn.com/v1/now/?apikey=#{espn_key}")
+    response = HTTParty.get(url_response)['feed']
     return response
   end
 end

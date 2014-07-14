@@ -1,6 +1,10 @@
-<h2 style="color:#<%= team_info['color'] %>"><%= team_info['location'] %> <%= team_info['name'] %></h2>
-<p>
-  <%= team_info['venues'][0]['name'] %>
-</p>
-
-<img src="<%= @team.logo %>" alt="" />
+<div class="team-info eight columns offset-by-four">
+  <h2 style="color:#<%= team_info['color'] %>"><%= team_info['location'] %> <%= team_info['name'] %></h2>
+  <p>
+    <%= team_info['venues'][0]['name'] %>
+  </p>
+  <p>
+    <%= team_info['venues'][0]['city'] %>, <%= team_info['venues'][0]['state']  %>
+  </p>
+  <img src="<%= @team.logo %>" alt="" />
+</div>

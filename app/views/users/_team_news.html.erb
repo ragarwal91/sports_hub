@@ -1,5 +1,7 @@
-<h2><%= team_news.first['headline'] %><br></h2>
-<%= team_news.first['description'] %><br>
+<h2><%= team_news.first['headline'] %></h2>
+<p>
+  <%= team_news.first['description'] %>
+</p>
 <% if team_news.first['images'] && team_news.first["images"][0] %>
   <img src="<%= team_news.first['images'].first['url'] %>" />
 <% end %>

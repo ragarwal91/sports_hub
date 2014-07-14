@@ -1,31 +1,32 @@
+<div class="user-fav mlb eight columns alpha" style="background:#<%= @mlb_info["color"] %>">
+  <h3><%= @mlb_info["location"] %> <%= @mlb_info["name"] %></h3>
+  <%= render partial: 'team_news', locals: {team_news: @mlb_news} %>
+  <a href="/teams/<%= @user.baseball_team_id %>" class="to-team"><%= @mlb_info["location"] %> <%= @mlb_info["name"] %> News</a>
+</div>
+
+<div class="user-fav nba eight columns omega" style="background:#<%= @nba_info["color"] %>">
+  <h3><%= @nba_info["location"] %> <%= @nba_info["name"] %></h3>
+  <%= render partial: 'team_news', locals: {team_news: @nba_news} %>
+  <a href="/teams/<%= @user.basketball_team_id %>" class="to-team"><%= @nba_info["location"] %> <%= @nba_info["name"] %> News</a>
+</div>
+
+<div class="user-fav nfl eight columns alpha" style="background:#<%= @nfl_info["color"] %>">
+  <h3><%= @nfl_info["location"] %> <%= @nfl_info["name"] %></h3>
+  <%= render partial: 'team_news', locals: {team_news: @nfl_news} %>
+  <a href="/teams/<%= @user.football_team_id %>" class="to-team"><%= @nfl_info["location"] %> <%= @nfl_info["name"] %> News</a>
+</div>
+
+<div class="user-fav nhl eight columns omega" style="background:#<%= @nhl_info["color"] %>">
+  <h3><%= @nhl_info["location"] %> <%= @nhl_info["name"] %></h3>
+  <%= render partial: 'team_news', locals: {team_news: @nhl_news} %>
+  <a href="/teams/<%= @user.hockey_team_id %>" class="to-team"><%= @nhl_info["location"] %> <%= @nhl_info["name"] %> News</a>
+</div>
+
+<div class="breaking-news sixteen columns alpha">
+  <h3>Breaking News</h3>
+  <a href="<%= @breaking_news.first['links']['web']['href'] %>" target="_blank"><h4><%= @breaking_news.first['headline'] %><br></h4></a>
+</div>
+
 <% if session[:current_user] == @user.id %>
   <%= link_to('Edit', edit_user_path(@user)) %>
 <% end %>
-<div class="user-fav mlb" style="background:#<%= @mlb_info["color"] %>">
-  <h2><%= @mlb_info["location"] %> <%= @mlb_info["name"] %></h2>
-  <%= render partial: 'team_news', locals: {team_news: @mlb_news} %>
-  <a href="/teams/<%= @user.baseball_team_id %>">Your favorite MLB team</a>
-</div>
-
-<div class="user-fav nba" style="background:#<%= @nba_info["color"] %>">
-  <h2><%= @nba_info["location"] %> <%= @nba_info["name"] %></h2>
-  <%= render partial: 'team_news', locals: {team_news: @nba_news} %>
-  <a href="/teams/<%= @user.basketball_team_id %>">Your favorite NBA team</a>
-</div>
-
-<div class="user-fav nfl" style="background:#<%= @nfl_info["color"] %>">
-  <h2><%= @nfl_info["location"] %> <%= @nfl_info["name"] %></h2>
-  <%= render partial: 'team_news', locals: {team_news: @nfl_news} %>
-  <a href="/teams/<%= @user.football_team_id %>">Your favorite NFL team</a>
-</div>
-
-<div class="user-fav nhl" style="background:#<%= @nhl_info["color"] %>">
-  <h2><%= @nhl_info["location"] %> <%= @nhl_info["name"] %></h2>
-  <%= render partial: 'team_news', locals: {team_news: @nhl_news} %>
-  <a href="/teams/<%= @user.hockey_team_id %>">Your favorite NHL team</a>
-</div>
-
-<div class="breaking-news">
-  <h2>Breaking News</h2>
-  <a href="<%= @breaking_news.first['links']['web']['href'] %>" target="_blank"><h3><%= @breaking_news.first['headline'] %><br></h3></a>
-</div>

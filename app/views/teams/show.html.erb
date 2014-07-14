@@ -1,35 +1,39 @@
 <% if @team.sport.id == 1 %>
   <%= render partial: 'team_info', locals: {team_info: @mlb_team_info} %>
-  <ul>
+  <ul class="team-news sixteen columns">
     <% @mlb_news.each do |team_news| %>
       <%= render partial: 'team_news', locals: {team_news: team_news} %>
     <% end %>
   </ul>
 <% elsif @team.sport.id == 2 %>
   <%= render partial: 'team_info', locals: {team_info: @nba_team_info} %>
-  <ul>
+  <ul class="team-news sixteen columns">
     <% @nba_news.each do |team_news| %>
       <%= render partial: 'team_news', locals: {team_news: team_news} %>
     <% end %>
   </ul>
 <% elsif @team.sport.id == 3  %>
   <%= render partial: 'team_info', locals: {team_info: @nfl_team_info} %>
-  <ul>
+  <ul class="team-news sixteen columns">
     <% @nfl_news.each do |team_news| %>
       <%= render partial: 'team_news', locals: {team_news: team_news} %>
     <% end %>
   </ul>
 <% elsif @team.sport.id == 4 %>
   <%= render partial: 'team_info', locals: {team_info: @nhl_team_info} %>
-  <ul>
+  <ul class="team-news sixteen columns">
     <% @nhl_news.each do |team_news| %>
       <%= render partial: 'team_news', locals: {team_news: team_news} %>
     <% end %>
   </ul>
 <% end %>
 
-<h2>Comments</h2>
-<% @team.comments.each do |comment| %>
-  <%= render partial: 'comments/comment', locals: {comment: comment} %>
-<% end %>
-  <%= render partial: 'comments/new', locals: {team: @team, comment: Comment.new} %>
+<div class="comment-box sixteen columns">
+  <div class="comment-content twelve columns offset-by-two">
+    <h2>Comments</h2>
+    <% @team.comments.each do |comment| %>
+      <%= render partial: 'comments/comment', locals: {comment: comment} %>
+    <% end %>
+      <%= render partial: 'comments/new', locals: {team: @team, comment: Comment.new} %>
+  </div>
+</div>

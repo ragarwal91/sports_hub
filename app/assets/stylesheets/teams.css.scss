@@ -2,6 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#teams-list ul {list-style-type:none;}
-#teams-list ul li{float:left;width: 75px;height: 75px;}
-#teams-list ul li img {width: 75%;}
+.teams-list ul {list-style-type:none;}
+.teams-list ul li{float:left;width: 75px;height: 75px;margin: 10px;}
+.teams-list ul li img {width: 75%;}
+.team-info {}
+.team-info h2 {text-align: center;margin-top: 0;}
+.team-info p {text-align: center;margin-bottom: 3px;margin-top: 3px;}
+.team-info img {width: 100px;margin-left: 40%;margin-top: 10px;}
+
+.team-news li {width: 100%;background:#FFF;box-shadow:0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);display:inline-block;padding-top: 30px;padding-bottom: 30px;margin-bottom: 30px;position:relative;}
+.team-news li img {width: 100%;margin-bottom: 15px;}
+.team-news li video {width: 100%;margin-bottom: 15px;}
+.team-news li h4 a {margin-bottom: 10px;color:#313131;text-decoration:none;font-weight:bold;font-size: 1.5em;}
+.team-news li p {margin-bottom: 10px;}
+.team-news .read-more {position: absolute; bottom: 10px;right: 20px;color:#313131;text-decoration:none;font-weight:bold;}
+
+.comment-box {background:#FFF;box-shadow:0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);padding: 30px 0 30px 0;margin-bottom: 30px;}
+.comment-box h2 {margin: 0 0 15px 0;}
+.comment-box textarea {width: 40%;height: 200px;padding: 10px;}
+.comment-box .comment {margin-bottom: 15px;border-bottom: 2px solid #333;padding-bottom: 10px;}
+.comment-box .comment h4 {margin-bottom: 5px;margin-top: 5px;}
+.comment-box .comment p {margin-top: 8px;margin-bottom: 10px;}

@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     @user.hockey_team_id = params[:hockey_team_id]
     if @user.save
       session[:current_user] = @user.id
-      redirect_to users_path
+      redirect_to user_path(@user)
     else
       render :new
     end
@@ -32,15 +32,15 @@ class UsersController < ApplicationController
     sleep(0.5)
     basketball_team = Team.find(@user.basketball_team_id)
     @nba_news = Espn.nba_team_news(basketball_team.espn_id)
-    @nba_info = Espn.nba_team_info(baseball_team.espn_id)
+    @nba_info = Espn.nba_team_info(basketball_team.espn_id)
     sleep(0.5)
     football_team = Team.find(@user.football_team_id)
     @nfl_news = Espn.nfl_team_news(football_team.espn_id)
-    @nfl_info = Espn.nfl_team_info(baseball_team.espn_id)
+    @nfl_info = Espn.nfl_team_info(football_team.espn_id)
     sleep(0.5)
     hockey_team = Team.find(@user.hockey_team_id)
     @nhl_news = Espn.nhl_team_news(hockey_team.espn_id)
-    @nhl_info = Espn.nhl_team_info(baseball_team.espn_id)
+    @nhl_info = Espn.nhl_team_info(hockey_team.espn_id)
     @breaking_news = User.breaking_news
   end
 

@@ -3,6 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.user-fav {width: 300px;color:#FFF}
-.user-fav img {width: 300px;}
-.user-fav video {width: 300px;}
+.user-fav {width: 300px;color:#FFF;height: 700px;margin-bottom: 20px;position:relative;box-shadow:0px 1px 3px rgba(20, 0, 0, 0.94), 0 1px 5px rgba(0, 0, 0, 0.05)}
+.user-fav h2 {padding-left: 10%;padding-right: 10%;font-size: 1.2em;}
+.user-fav h3 {padding-left: 10%;padding-right: 10%;font-size: 1em;}
+.user-fav p {margin-bottom: 10px;height: 85px;padding-left: 10%;padding-right: 10%;}
+.user-fav img {width: 80%;margin-left: 10%;margin-right: 10%;max-height:400px;margin-bottom: 10px;}
+.user-fav video {width: 80%;max-height:300px;margin-left: 10%;margin-right: 10%;}
+.user-fav a.to-team {color:#FFF;text-decoration: none;display:inline-block;position:absolute;bottom: 10px; right: 10px;}
+
+.breaking-news {background:#FFF;box-shadow:0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);padding: 0 20px;width: 900px !important;}
+.breaking-news h3 {color: #C80000;}
+.breaking-news a {text-decoration:none;}
+.breaking-news h4{color: #313131;}
