@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate, only: [:edit, :update]
+  before_action :authorize, only: [:edit, :update,:destroy]
 
   def index
     @users = User.all
-  #   @info = {:mlb => mlb_info,
-  #             :nhl => info}
   end
 
   def new
@@ -28,15 +26,22 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @mlb_team_info = Espn.mlb_team_info(@user.baseball_team_id)
-    # @nba_team_info = Espn.nba_team_info(@user.basketball_team_id)
-    @mlb_news = User.mlb_team_news(@user.baseball_team_id)
-    sleep(1)
-    @nba_news = User.nba_team_news(@user.basketball_team_id)
-    sleep(1)
-    @nfl_news = User.nfl_team_news(@user.football_team_id)
-    sleep(1)
-    @nhl_news = User.nhl_team_news(@user.hockey_team_id)
+    baseball_team = Team.find(@user.baseball_team_id)
+    @mlb_news = Espn.mlb_team_news(baseball_team.espn_id)
+    @mlb_info = Espn.mlb_team_info(baseball_team.espn_id)
+    sleep(0.5)
+    basketball_team = Team.find(@user.basketball_team_id)
+    @nba_news = Espn.nba_team_news(basketball_team.espn_id)
+    @nba_info = Espn.nba_team_info(baseball_team.espn_id)
+    sleep(0.5)
+    football_team = Team.find(@user.football_team_id)
+    @nfl_news = Espn.nfl_team_news(football_team.espn_id)
+    @nfl_info = Espn.nfl_team_info(baseball_team.espn_id)
+    sleep(0.5)
+    hockey_team = Team.find(@user.hockey_team_id)
+    @nhl_news = Espn.nhl_team_news(hockey_team.espn_id)
+    @nhl_info = Espn.nhl_team_info(baseball_team.espn_id)
+    @breaking_news = User.breaking_news
   end
 
   def edit

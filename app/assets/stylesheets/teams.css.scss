@@ -1,3 +1,7 @@
 // Place all the styles related to the teams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#teams-list ul {list-style-type:none;}
+#teams-list ul li{float:left;width: 75px;height: 75px;}
+#teams-list ul li img {width: 75%;}

@@ -1,6 +1,5 @@
-
 <li>
-  <a href="<%= team_news["links"]["web"]["href"] %>"><%= team_news["headline"] %><br></a>
+  <a href="<%= team_news["links"]["web"]["href"] %>" target="_blank"><%= team_news["headline"] %><br></a>
   <%= team_news["description"] %>
   <% if team_news["images"] && team_news["images"][0] %>
     <img src="<%= team_news["images"][0]["url"] %>" alt="" />

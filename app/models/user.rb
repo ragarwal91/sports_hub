@@ -5,6 +5,12 @@ class User < ActiveRecord::Base
   validates :username, :email_address, uniqueness: true
   # validates length_of :password_digest, minimum: 6
 
+  def self.breaking_news
+    url_response = URI.escape("http://api.espn.com/v1/now/?apikey=w92t52cvsppdst5du4x5av4m")
+    response = HTTParty.get(url_response)['feed']
+    return response
+  end
+
   def self.mlb_team_news(team_id)
     url_response = URI.escape("http://api.espn.com/v1/sports/baseball/mlb/teams/#{team_id}/news?limit=1&apikey=w92t52cvsppdst5du4x5av4m")
     response = HTTParty.get(url_response)['headlines']

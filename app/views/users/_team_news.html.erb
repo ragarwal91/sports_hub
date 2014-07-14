@@ -1,0 +1,8 @@
+<h2><%= team_news.first['headline'] %><br></h2>
+<%= team_news.first['description'] %><br>
+<% if team_news.first['images'] && team_news.first["images"][0] %>
+  <img src="<%= team_news.first['images'].first['url'] %>" />
+<% end %>
+<% if team_news.first["video"] && team_news.first["video"][0] %>
+  <video src="<%= team_news.first["video"][0]["links"]["source"]["mezzanine"]["href"] %>" controls></video>
+<% end %>

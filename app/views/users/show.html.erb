@@ -1,48 +1,31 @@
-<%= link_to('Edit', edit_user_path(@user)) %>
-<div class="user-fav">
-  <h2>Your favorite MLB team</h2>
-  <h2><%= @mlb_news.first['headline'] %><br></h2>
-  <%= @mlb_news.first['description'] %><br>
-  <img src="<%= @mlb_news.first['images'].first['url'] %>" />
-  <% if @mlb_news.first["video"] && @mlb_news.first["video"][0] %>
-    <video src="<%= @mlb_news.first["video"][0]["links"]["source"]["mezzanine"]["href"] %>" controls>
-    </video>
-  <% end %>
-  <% sleep(1) %>
+<% if session[:current_user] == @user.id %>
+  <%= link_to('Edit', edit_user_path(@user)) %>
+<% end %>
+<div class="user-fav mlb" style="background:#<%= @mlb_info["color"] %>">
+  <h2><%= @mlb_info["location"] %> <%= @mlb_info["name"] %></h2>
+  <%= render partial: 'team_news', locals: {team_news: @mlb_news} %>
+  <a href="/teams/<%= @user.baseball_team_id %>">Your favorite MLB team</a>
 </div>
 
-<div class="user-fav">
-  <h2>Your favorite MLB team</h2>
-  <h2><%= @mlb_news.first['headline'] %><br></h2>
-  <%= @mlb_news.first['description'] %><br>
-  <img src="<%= @mlb_news.first['images'].first['url'] %>" />
-  <% if @mlb_news.first["video"] && @mlb_news.first["video"][0] %>
-    <video src="<%= @mlb_news.first["video"][0]["links"]["source"]["mezzanine"]["href"] %>" controls>
-    </video>
-  <% end %>
-  <% sleep(1) %>
+<div class="user-fav nba" style="background:#<%= @nba_info["color"] %>">
+  <h2><%= @nba_info["location"] %> <%= @nba_info["name"] %></h2>
+  <%= render partial: 'team_news', locals: {team_news: @nba_news} %>
+  <a href="/teams/<%= @user.basketball_team_id %>">Your favorite NBA team</a>
 </div>
 
-<div class="user-fav">
-  <h2>Your favorite MLB team</h2>
-  <h2><%= @mlb_news.first['headline'] %><br></h2>
-  <%= @mlb_news.first['description'] %><br>
-  <img src="<%= @mlb_news.first['images'].first['url'] %>" />
-  <% if @mlb_news.first["video"] && @mlb_news.first["video"][0] %>
-    <video src="<%= @mlb_news.first["video"][0]["links"]["source"]["mezzanine"]["href"] %>" controls>
-    </video>
-  <% end %>
-  <% sleep(1) %>
+<div class="user-fav nfl" style="background:#<%= @nfl_info["color"] %>">
+  <h2><%= @nfl_info["location"] %> <%= @nfl_info["name"] %></h2>
+  <%= render partial: 'team_news', locals: {team_news: @nfl_news} %>
+  <a href="/teams/<%= @user.football_team_id %>">Your favorite NFL team</a>
 </div>
 
-<div class="user-fav">
-  <h2>Your favorite MLB team</h2>
-  <h2><%= @mlb_news.first['headline'] %><br></h2>
-  <%= @mlb_news.first['description'] %><br>
-  <img src="<%= @mlb_news.first['images'].first['url'] %>" />
-  <% if @mlb_news.first["video"] && @mlb_news.first["video"][0] %>
-    <video src="<%= @mlb_news.first["video"][0]["links"]["source"]["mezzanine"]["href"] %>" controls>
-    </video>
-  <% end %>
-  <% sleep(1) %>
+<div class="user-fav nhl" style="background:#<%= @nhl_info["color"] %>">
+  <h2><%= @nhl_info["location"] %> <%= @nhl_info["name"] %></h2>
+  <%= render partial: 'team_news', locals: {team_news: @nhl_news} %>
+  <a href="/teams/<%= @user.hockey_team_id %>">Your favorite NHL team</a>
+</div>
+
+<div class="breaking-news">
+  <h2>Breaking News</h2>
+  <a href="<%= @breaking_news.first['links']['web']['href'] %>" target="_blank"><h3><%= @breaking_news.first['headline'] %><br></h3></a>
 </div>
