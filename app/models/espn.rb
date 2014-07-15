@@ -1,11 +1,6 @@
 class Espn < ActiveRecord::Base
-  # def self.api(espn_id)
-  #   url_response = URI.escape("http://api.espn.com/v1/sports/baseball/mlb/teams/#{espn_id}/news?limit=1&apikey=#{espn_key}")
-  #   response = HTTParty.get(url_response)['headlines']
-  #   return response
-  # end
 
-
+  # Get ESPN ID from API
   def self.mlb_info
     espn_key = ENV["ESPN_API_KEY"]
     url = URI.escape("http://api.espn.com/v1/sports/baseball/mlb/teams?enable=venues&apikey=#{espn_key}")
@@ -46,6 +41,7 @@ class Espn < ActiveRecord::Base
     return info
   end
 
+  # Get Team info from API
   def self.mlb_team_info(espn_id)
     espn_key = ENV["ESPN_API_KEY"]
     url_response = URI.escape("http://api.espn.com/v1/sports/baseball/mlb/teams/#{espn_id}?enable=venues&apikey=#{espn_key}")
@@ -78,6 +74,7 @@ class Espn < ActiveRecord::Base
     return response
   end
 
+  # Get teams news from API
   def self.mlb_team_news(espn_id)
     espn_key = ENV["ESPN_API_KEY"]
     url_response = URI.escape("http://api.espn.com/v1/sports/baseball/mlb/teams/#{espn_id}/news?limit=3&apikey=#{espn_key}")

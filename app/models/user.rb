@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :teams
   validates :username, :first_name,:email_address, presence: true
   validates :username, :email_address, uniqueness: true
-  # validates length_of :password_digest, minimum: 6
 
+  # Get team news from API
   def self.mlb_team_news(team_id)
     espn_key = ENV["ESPN_API_KEY"]
     url_response = URI.escape("http://api.espn.com/v1/sports/baseball/mlb/teams/#{team_id}/news?limit=1&apikey=#{espn_key}")

@@ -15,7 +15,6 @@
   <%= f.text_field :email_address %>
   <br>
 
-
   <%= f.label :password %>
   <%= f.password_field :password %>
   <br>
@@ -26,7 +25,8 @@
 
   <%= f.label(:team) %>
   <% Sport.all.each do |sport| %>
-    <%= select_tag("#{sport.sport_name.downcase}_team_id", options_for_select(sport.teams.all.map { |team| [team.team_name, team.id]} )) %>
+    <% sport_team_label = "#{sport.sport_name.downcase}_team_id" %>
+    <%= select_tag(sport_team_label, options_for_select(sport.teams.all.map { |team| [team.team_name, team.id]}, @user[sport_team_label])) %>
   <% end %>
 
   <%= f.submit %>

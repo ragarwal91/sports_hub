@@ -1,10 +1,9 @@
 == README
 
-My Sports is combination of all your favorite teams in one place. 
+My Sports is combination of all your favorite teams in one place.
 
-[ERD](https://www.lucidchart.com/documents/edit/9f9e003f-3217-4c9b-8fe6-6e6f441bbeb9/0)
+[ERD](http://www.lucidchart.com/invitations/accept/30a8a5d2-c3a1-467e-b0f4-1e5bd5908173)
 
 [Trello](https://trello.com/b/ZcxsEQdT/ranjan-agarwal-sports-hub)
 
 [Heroku](http://secure-thicket-6716.herokuapp.com/teams)
-
