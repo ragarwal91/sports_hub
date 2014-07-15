@@ -1,6 +1,6 @@
 == README
 
-My Sports is combination of all your favorite teams in one place.
+My Sports is a combination of all your favorite teams in one place.
 
 [ERD](http://www.lucidchart.com/invitations/accept/30a8a5d2-c3a1-467e-b0f4-1e5bd5908173)
 
