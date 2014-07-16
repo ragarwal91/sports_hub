@@ -24,11 +24,6 @@ ActiveRecord::Schema.define(version: 20140713175138) do
     t.datetime "updated_at"
   end
 
-  create_table "espns", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "sports", force: true do |t|
     t.string   "sport_name"
     t.string   "league_name"
@@ -63,6 +58,11 @@ ActiveRecord::Schema.define(version: 20140713175138) do
     t.string   "basketball_team_id"
     t.string   "football_team_id"
     t.string   "hockey_team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "espns", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
