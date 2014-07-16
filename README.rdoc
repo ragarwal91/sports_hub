@@ -2,7 +2,7 @@
 
 My Sports is a combination of all your favorite teams in one place.
 
-[ERD](http://www.lucidchart.com/invitations/accept/30a8a5d2-c3a1-467e-b0f4-1e5bd5908173)
+[ERD](https://www.lucidchart.com/publicSegments/view/53c6cb98-40cc-432b-a28e-58840a004fa9/image.jpeg)
 
 [Trello](https://trello.com/b/ZcxsEQdT/ranjan-agarwal-sports-hub)
 

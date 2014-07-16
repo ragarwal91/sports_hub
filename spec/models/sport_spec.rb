@@ -9,4 +9,5 @@ describe Sport do
     it {is_expected.to validate_presence_of :sport_name}
     it {is_expected.to validate_presence_of :league_name}
     it {is_expected.to validate_presence_of :league_acronym}
+    it {is_expected.to have_db_column :espn_id}
 end
