@@ -1,9 +1,12 @@
 # require 'rails_helper'
 #
-# RSpec.describe CommentsController, :type => :controller do
+# describe TeamsController do
+#
+#
 #   describe 'GET #show' do
 #     before { get :show }
 #
-#     it { should redirect_to(teams_path) }
+#     it {is_expected.to respond_with(200)}
 #   end
+#
 # end
